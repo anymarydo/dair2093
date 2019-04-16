@@ -11,6 +11,10 @@ public class CarteValidator {
 	}
 	
 	public static void validateCarte(Carte c)throws Exception{
+		if(Integer.parseInt(c.getAnAparitie())<=1950)
+			throw new Exception("Anul trebuie sa fie mai mare de 1950!");
+		if(c.getTitlu().length()>=35)
+			throw new Exception("Titlul nu poate avea lungimea mai mare de 35!");
 		if(c.getCuvinteCheie()==null){
 			throw new Exception("Lista cuvinte cheie vida!");
 		}
@@ -44,6 +48,12 @@ public class CarteValidator {
 			}
 		}
 		return ok;
+	}
+
+	public static void validateAutor(String autor)throws Exception{
+		if(!isOKString(autor)){
+			throw new Exception("Autor invalid!");
+		}
 	}
 	
 }

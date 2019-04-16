@@ -17,7 +17,7 @@ public class BibliotecaCtrl {
 	
 	public void adaugaCarte(Carte c) throws Exception{
 		CarteValidator.validateCarte(c);
-		cr.adaugaCarte(c);
+		cr.adaugaCarte(c.getTitlu(),c.getReferenti(),c.getAnAparitie(),c.getEditura(),c.getCuvinteCheie());
 	}
 	
 	public void modificaCarte(Carte nou, Carte vechi) throws Exception{
@@ -29,7 +29,7 @@ public class BibliotecaCtrl {
 	}
 
 	public List<Carte> cautaCarteDupaAutor(String autor) throws Exception{
-		CarteValidator.noSpacesStringIsOK(autor);
+		CarteValidator.validateAutor(autor);
 		return cr.cautaCarteDupaAutor(autor);
 	}
 	

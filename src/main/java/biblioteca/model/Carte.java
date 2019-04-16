@@ -10,12 +10,30 @@ public class Carte {
 	private List<String> referenti;
 	private String anAparitie;
 	private List<String> cuvinteCheie;
-	
+	private String editura;
+
+	public String getEditura() {
+		return editura;
+	}
+
+	public void setEditura(String editura) {
+		this.editura = editura;
+	}
+
 	public Carte(){
+
 		titlu = "";
 		referenti = new ArrayList<String>();
 		anAparitie = "";
 		cuvinteCheie = new ArrayList<String>();
+	}
+
+	public Carte(String titlu, List<String> referenti, String anAparitie,String editura, List<String> cuvinteCheie) {
+		this.titlu = titlu;
+		this.referenti = referenti;
+		this.anAparitie = anAparitie;
+		this.cuvinteCheie = cuvinteCheie;
+		this.editura = editura;
 	}
 
 	public String getTitlu() {
@@ -100,7 +118,7 @@ public class Carte {
 				cuvCheie+=cuvinteCheie.get(i)+",";
 		}
 		
-		return titlu+";"+ref+";"+anAparitie+";"+cuvCheie;
+		return titlu+";"+ref+";"+anAparitie+";"+editura+";"+cuvCheie;
 	}
 	
 	public static Carte getCarteFromString(String carte){
@@ -114,6 +132,7 @@ public class Carte {
 			c.adaugaReferent(s);
 		}
 		c.anAparitie = atr[2];
+		c.editura = atr[3];
 		for(String s:cuvCheie){
 			c.adaugaCuvantCheie(s);
 		}

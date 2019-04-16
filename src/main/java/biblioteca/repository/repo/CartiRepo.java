@@ -13,26 +13,53 @@ import java.util.List;
 
 public class CartiRepo implements CartiRepoInterface {
 	
-	private String file = "out/cartiBD.txt";
+	private String file = "cartiBD.dat";
 	
 	public CartiRepo(){
 		URL location = CartiRepo.class.getProtectionDomain().getCodeSource().getLocation();
         System.out.println(location.getFile());
 	}
-	
-	@Override
-	public void adaugaCarte(Carte c) {
+
+	public void adaugaCarte(String titlu,List<String> referenti, String an,String editura,List<String> cuvinteCheie) {
 		BufferedWriter bw = null;
 		try {
+			String ref = "";
+			String cuvCheie = "";
 			bw = new BufferedWriter(new FileWriter(file,true));
-			bw.write(c.toString());
+			for(int i=0;i<referenti.size();i++){
+				if(i==referenti.size()-1)
+					ref+=referenti.get(i);
+				else
+					ref+=referenti.get(i)+",";
+			}
+
+			for(int i=0;i<cuvinteCheie.size();i++){
+				if(i==cuvinteCheie.size()-1)
+					cuvCheie+=cuvinteCheie.get(i);
+				else
+					cuvCheie+=cuvinteCheie.get(i)+",";
+			}
+			bw.write(titlu+";"+ref+";"+an+";"+editura+";"+cuvCheie);
 			bw.newLine();
-			
 			bw.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
+
+//	@Override
+//	public void adaugaCarte(Carte c) {
+//		BufferedWriter bw = null;
+//		try {
+//			bw = new BufferedWriter(new FileWriter(file,true));
+//			bw.write(c.toString());
+//			bw.newLine();
+//
+//			bw.close();
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//	}
 
 	@Override
 	public List<Carte> getCarti() {

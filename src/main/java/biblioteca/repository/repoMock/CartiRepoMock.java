@@ -25,10 +25,10 @@ public class CartiRepoMock implements CartiRepoInterface {
 
 	}
 	
-	@Override
-	public void adaugaCarte(Carte c) {
-		carti.add(c);
-	}
+//	@Override
+//	public void adaugaCarte(Carte c) {
+//		carti.add(c);
+//	}
 	
 	@Override
 	public List<Carte> cautaCarteDupaAutor(String ref) {
@@ -95,6 +95,11 @@ public class CartiRepoMock implements CartiRepoInterface {
 		});
 		
 		return lca;
+	}
+
+	@Override
+	public void adaugaCarte(String titlu, List<String> referenti, String an, String editura, List<String> cuvinteCheie) {
+		////TO DO
 	}
 
 }

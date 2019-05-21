@@ -93,6 +93,12 @@ public class Consola {
 				System.out.println("Cuvant "+i+": ");
 				c.adaugaCuvantCheie(console.readLine());
 			}
+
+			do{
+				System.out.println("Editura:");
+				line=console.readLine();
+				c.setEditura(line);
+			}while(!line.matches("^[a-zA-Z]+.*"));
 			
 			bc.adaugaCarte(c);
 			
@@ -133,10 +139,8 @@ public class Consola {
 		System.out.println("\n\n\n");
 		try{
 			String line;
-			do{
-				System.out.println("An aparitie:");
-				line=console.readLine();
-			}while(!line.matches("[10-9]+"));
+			System.out.println("An aparitie:");
+			line=console.readLine();
 			for(Carte c:bc.getCartiOrdonateDinAnul(line)){
 				System.out.println(c);
 			}

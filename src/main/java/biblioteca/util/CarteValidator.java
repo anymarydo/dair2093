@@ -38,6 +38,10 @@ public class CarteValidator {
 	public static boolean isNumber(String s){
 		return s.matches("[0-9]+");
 	}
+
+	public static boolean isAn(String s) {
+		return s.matches("[12][0-9]{3}");
+	}
 	
 	private static boolean isOKString(String s){
 		String []t = s.split(" ");

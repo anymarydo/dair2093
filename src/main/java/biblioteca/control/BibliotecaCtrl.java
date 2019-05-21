@@ -38,8 +38,8 @@ public class BibliotecaCtrl {
 	}
 	
 	public List<Carte> getCartiOrdonateDinAnul(String an) throws Exception{
-		if(!CarteValidator.isNumber(an))
-			throw new Exception("Nu e numar!");
+		if(!CarteValidator.isAn(an))
+			throw new Exception("An invalid!");
 		return cr.getCartiOrdonateDinAnul(an);
 	}
 	

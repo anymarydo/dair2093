@@ -132,8 +132,8 @@ public class CartiRepo implements CartiRepoInterface {
 
 			@Override
 			public int compare(Carte a, Carte b) {
-				if(a.getAnAparitie().compareTo(b.getAnAparitie())==0){
-					return a.getTitlu().compareTo(b.getTitlu());
+				if(a.getTitlu().compareTo(b.getTitlu())==0){
+					return a.getReferenti().get(0).compareTo(b.getReferenti().get(0));
 				}
 				
 				return a.getTitlu().compareTo(b.getTitlu());
